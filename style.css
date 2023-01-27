@@ -1,0 +1,169 @@
+/*
+  Josh's Custom CSS Reset
+  https://www.joshwcomeau.com/css/custom-css-reset/
+*/
+:root {
+    --dark-cyan: hsl(158, 36%, 37%);
+    --cream: hsl(30, 38%, 92%);
+
+    --very-dark-blue: hsl(212, 21%, 14%);
+    --dark-grayish-blue: hsl(228, 12%, 48%);
+    --white: hsl(0, 0%, 100%);
+
+    --fw-regular: 500;
+    --fw-bold: 700;
+
+    --ff-accent: 'Fraunces', serif;
+    --ff-base: 'Montserrat', sans-serif;
+
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+    max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    overflow-wrap: break-word;
+}
+h1,
+h2,
+h3{
+    line-height: 1.1rem;
+}
+
+#root,
+#__next {
+    isolation: isolate;
+}
+
+/* General Styling*/
+
+body{
+    font-family: var(--ff-base);
+    font-weight: var(--fw-regular);
+    color: var(--very-dark-blue);
+    background-color: var(--cream);
+
+
+    display: grid;
+    min-height: 100vh;
+    place-content: center;
+    margin: 1rem;
+}
+
+.flex-group{
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.button{
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+
+    border: 0;
+    border-radius: 0.5rem;
+    padding: 0.75em 1.5em;
+    background-color: var(--dark-cyan);
+    color: var(--white);
+    font-weight: var(--fw-bold);
+    font-size: 0.925rem;
+
+
+}
+
+.button:is(:hover,:focus){
+    background-color: var(--dark-grayish-blue);
+
+}
+
+.button[data-icon="shopping-cart"]::before{
+content: "";
+background-image: url("images/icon-cart.svg");
+width:15px;
+height: 16px;
+
+}
+
+.product{
+    background-color: var(--white);
+    border-radius: 0.5rem;
+    overflow: hidden;
+    --content-variable:1.5rem;
+    display: grid;
+    max-width: 600px;
+}
+
+.product__content{
+
+    padding: var(--content-variable);
+    display: grid;
+    gap: 1rem;
+}
+
+.product__category{
+    text-transform: uppercase;
+    letter-spacing: 6px;
+}
+
+.product__title{
+    font-size: 2rem;
+    line-height: 2rem;
+    font-family: var(--ff-accent);
+    color: var(--dark-grayish-blue);
+}
+
+.product__price{
+    font-size: 2rem;
+    font-family: var(--ff-accent);
+    color: var(--dark-cyan );
+}
+
+@media(min-width:600px){
+    .product{
+        --content-padding:2rem;
+        grid-template-columns: 1fr 1fr;
+    }
+}
